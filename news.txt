@@ -1,0 +1,57 @@
+(channel-news
+ (version 0)
+
+ (entry (commit "3551917add39ab35b827a2debc07bab5b40f5948")
+        (title (en "Llama, packages, plus authenticated updates"))
+        (body
+         (en "Llama takes advantage of the support for
+authenticated updates in @command{guix pull}, which protects you from attempts
+to tamper with the Llama repository and ship malicious code instead.
+To ensure you only receive genuine updates from Llama, you should update your
+@file{~/.config/guix/channels.scm} to include the channel introduction:
+
+@lisp
+(channel
+ (name 'llama)
+ (url \"https://github.com/jo-hpe/llama-guix-channel\")
+ (introduction
+  (make-channel-introduction
+   \"3551917add39ab35b827a2debc07bab5b40f5948\"
+   (openpgp-fingerprint
+    \"D670 E20E F827 1F5D 9736  EDAE A65C C1B7 5611 61A8\"))))
+@end lisp
+
+The following packages are included in separate categories:
+# virtualization
+- vagrant - Build and distribute virtualized development environments
+
+# kubernetes
+- kops - kubernetes cluster ops
+- go-k8s-io-kubernetes - kubernetes source
+- kubeadm - manage applications across multiple hosts, administrative tool
+- kubectl - manage applications across multiple hosts, client tool
+
+# emacs
+- emacs-pcache - persistent caching for Emacs
+- emacs-logito - logging library for Emacs
+- emacs-fontsloth - Elisp otf/ttf font loader/renderer
+- emacs-backlight - backlight brightness adjustment on GNU/Linux
+- emacs-volume - tweak your sound card volume from Emacs
+- emacs-exlybar - Emacs polybar-like thing
+- emacs-gotest - Launch GO unit tests
+- emacs-go-gen-test - Generate tests for go code with gotests
+- emacs-impostman - Import of Postman collections in Emacs
+
+# security-token
+- yubico-piv-tool - Interact with the PIV application on a YubiKey
+
+# server-access
+- scaleft-client-tools - ScaleFT(TM) client tools
+
+"))))
+
+;; Local Variables:
+;; mode: scheme
+;; End:
+
+;; vim: filetype=scheme
