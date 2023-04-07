@@ -235,3 +235,22 @@ sending the code to me, so I can integrate it into this file.")
     verb
     restclient")
     (license #f)))
+
+(define-public emacs-ob-mermaid
+  (package
+    (name "emacs-ob-mermaid")
+    (version "20220225.2012")
+    (source (origin
+              (method git-fetch)
+              (uri (git-reference
+                    (url "https://github.com/arnm/ob-mermaid.git")
+                    (commit "b4ce25699e3ebff054f523375d1cf5a17bd0dbaf")))
+              (sha256
+               (base32
+                "0fhj3241gpj6qj2sawr8pgyn5b7320vjfb7idsy23kh4jvmj2wb8"))))
+    (build-system emacs-build-system)
+    (home-page "https://github.com/arnm/ob-mermaid")
+    (synopsis "Generate mermaid diagrams using org-mode, org-babel and mermaid.cli")
+    (description
+     "Generate mermaid diagrams using org-mode, org-babel and mermaid.cli")
+    (license #f)))
