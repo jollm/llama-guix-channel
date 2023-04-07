@@ -1,7 +1,14 @@
 (channel-news
  (version 0)
 
- (entry (commit "5ae17f5ab82168733ac8b00591a97943fcaf4cf1")
+ (entry (commit "6d6965f0a0f9ccf2de8c6439cb1270cd12b28735")
+        (title (en "Llama: Add emacs-ob-mermaid"))
+        (body
+         (en "Generate mermaid diagrams using org-mode, org-babel and
+mermaid.cli
+")))
+
+(entry (commit "5ae17f5ab82168733ac8b00591a97943fcaf4cf1")
         (title (en "Llama: Add node-lts 18.15.0"))
         (body
          (en "Add Node 18 LTS to override GNU Node LTS
