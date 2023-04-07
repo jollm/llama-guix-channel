@@ -1,6 +1,17 @@
 (channel-news
  (version 0)
 
+ (entry (commit "5ae17f5ab82168733ac8b00591a97943fcaf4cf1")
+        (title (en "Llama: Add node-lts 18.15.0"))
+        (body
+         (en "Add Node 18 LTS to override GNU Node LTS
+
+There is a patch pending in the official guix channel. For now this
+will at least install a running npm and node binary.
+
+Note: it takes a long time to build, ~30-45 minutes.
+")))
+
  (entry (commit "3551917add39ab35b827a2debc07bab5b40f5948")
         (title (en "Llama, packages, plus authenticated updates"))
         (body
