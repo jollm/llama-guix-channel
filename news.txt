@@ -1,6 +1,13 @@
 (channel-news
  (version 0)
 
+(entry (commit "07a43784f594f13cab70cf971af96286cb457808")
+        (title (en "Llama: Add IntelliJ IDEA Ultimate 2023.1"))
+        (body
+         (en "Add IntelliJ IDEA Ultimate 2023.1 (binary build system)
+First version of this build, may need refinement
+")))
+
  (entry (commit "6d6965f0a0f9ccf2de8c6439cb1270cd12b28735")
         (title (en "Llama: Add emacs-ob-mermaid"))
         (body
