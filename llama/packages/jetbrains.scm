@@ -55,10 +55,10 @@
            (add-after 'install 'wrap-launcher
              (lambda* (#:key inputs outputs #:allow-other-keys)
                (let ((idea-sh (string-append (assoc-ref outputs "out") "/bin/idea.sh"))
-                     (jdk-path (assoc-ref inputs "openjdk17"))
+                     (jdk-path (assoc-ref inputs "openjdk14"))
                      (jdk18-path (assoc-ref inputs "openjdk18"))
+                     (jdk17-path (assoc-ref inputs "openjdk17"))
                      (jdk15-path (assoc-ref inputs "openjdk15"))
-                     (jdk14-path (assoc-ref inputs "openjdk14"))
                      (jdk11-path (assoc-ref inputs "openjdk11"))
                      (maven-path (assoc-ref inputs "maven")))
                  (wrap-program idea-sh
@@ -66,8 +66,9 @@
                    `("_JAVA_AWT_WM_NONREPARENTING" = ("1"))
                    `("AWT_TOOLKIT" = ("MToolkit"))
                    `("JDK18_PATH" = (,jdk18-path))
+                   `("JDK17_PATH" = (,jdk17-path))
                    `("JDK15_PATH" = (,jdk15-path))
-                   `("JDK14_PATH" = (,jdk14-path))
+                   `("JDK14_PATH" = (,jdk-path))
                    `("JDK11_PATH" = (,jdk11-path))
                    `("MAVEN_HOME" = (,maven-path))
                    ))))
