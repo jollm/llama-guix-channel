@@ -254,3 +254,24 @@ sending the code to me, so I can integrate it into this file.")
     (description
      "Generate mermaid diagrams using org-mode, org-babel and mermaid.cli")
     (license #f)))
+
+(define-public emacs-elfeed-tube
+  (package
+    (name "emacs-elfeed-tube")
+    (version "20230316.313")
+    (source (origin
+              (method git-fetch)
+              (uri (git-reference
+                    (url "https://github.com/karthink/elfeed-tube.git")
+                    (commit "194215ae02f4f7bfc4b693317afd6338d30459d1")))
+              (sha256
+               (base32
+                "1arr63vwlyc7h0nqpdh4i0kava77yr0z9lcyh0d6hd923vaidc8r"))))
+    (build-system emacs-build-system)
+    (propagated-inputs (list emacs-aio emacs-elfeed emacs-mpv))
+    (home-page "https://github.com/karthink/elfeed-tube")
+    (synopsis "Youtube on your terms")
+    (description
+     "Elfeed Tube adds video descriptions, metadata and “live”
+transcripts for all Youtube video entries in Elfeed.")
+    (license license:unlicense)))
