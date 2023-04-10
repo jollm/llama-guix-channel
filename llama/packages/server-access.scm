@@ -27,7 +27,7 @@
                (base32
                 "0fy8dna58bv3gywx2hqmhbczbf0w2xzz0zyq2s59lzqa6f2r444i"))))
     (build-system copy-build-system)
-    (propagated-inputs (list glibc))
+    (inputs (list glibc))
     (native-inputs (list cpio rpm patchelf patool which))
     (arguments
      `(#:phases
