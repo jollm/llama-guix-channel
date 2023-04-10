@@ -1,6 +1,13 @@
 (channel-news
  (version 0)
 
+(entry (commit "b6239010184e2188397de1132427a68826f7daac")
+        (title (en "Llama: Add emacs-elfeed-tube"))
+        (body
+         (en "Elfeed Tube adds video descriptions, metadata and “live”
+transcripts for all Youtube video entries in Elfeed.
+")))
+
 (entry (commit "07a43784f594f13cab70cf971af96286cb457808")
         (title (en "Llama: Add IntelliJ IDEA Ultimate 2023.1"))
         (body
