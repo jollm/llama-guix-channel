@@ -1,6 +1,17 @@
 (channel-news
  (version 0)
 
+(entry (commit "afae7b05e300a25a35bd6844c3d630a52ebd4ea3")
+        (title (en "Llama: IntelliJ IDEA hello world"))
+        (body
+         (en "First working version of IDEA Ultimate
+
+- uses bundled JDK instead of OS
+- adds to LD_LIBRARY_PATH for libe2p
+
+Note: plugins may depend on yet more libraries
+")))
+
 (entry (commit "b6239010184e2188397de1132427a68826f7daac")
         (title (en "Llama: Add emacs-elfeed-tube"))
         (body
