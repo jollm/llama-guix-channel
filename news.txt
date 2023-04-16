@@ -1,7 +1,17 @@
 (channel-news
  (version 0)
 
-(entry (commit "afae7b05e300a25a35bd6844c3d630a52ebd4ea3")
+ (entry (commit "dafaaa6b4f5ab932ae86f2e2f2116a46bf654849")
+        (title (en "Llama: Adding Jetbrains Goland"))
+        (body
+         (en "Add JetBrains GoLand
+
+Appears to work based on intial testing
+
+Using native OpenJDK 17
+")))
+
+ (entry (commit "afae7b05e300a25a35bd6844c3d630a52ebd4ea3")
         (title (en "Llama: IntelliJ IDEA hello world"))
         (body
          (en "First working version of IDEA Ultimate
@@ -12,14 +22,14 @@
 Note: plugins may depend on yet more libraries
 ")))
 
-(entry (commit "b6239010184e2188397de1132427a68826f7daac")
+ (entry (commit "b6239010184e2188397de1132427a68826f7daac")
         (title (en "Llama: Add emacs-elfeed-tube"))
         (body
          (en "Elfeed Tube adds video descriptions, metadata and “live”
 transcripts for all Youtube video entries in Elfeed.
 ")))
 
-(entry (commit "07a43784f594f13cab70cf971af96286cb457808")
+ (entry (commit "07a43784f594f13cab70cf971af96286cb457808")
         (title (en "Llama: Add IntelliJ IDEA Ultimate 2023.1"))
         (body
          (en "Add IntelliJ IDEA Ultimate 2023.1 (binary build system)
@@ -33,7 +43,7 @@ First version of this build, may need refinement
 mermaid.cli
 ")))
 
-(entry (commit "5ae17f5ab82168733ac8b00591a97943fcaf4cf1")
+ (entry (commit "5ae17f5ab82168733ac8b00591a97943fcaf4cf1")
         (title (en "Llama: Add node-lts 18.15.0"))
         (body
          (en "Add Node 18 LTS to override GNU Node LTS
