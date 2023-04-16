@@ -11,10 +11,11 @@
   #:use-module (gnu packages elf)
   #:use-module (gnu packages fontutils)
   #:use-module (gnu packages gcc)
+  #:use-module (gnu packages geo)
   #:use-module (gnu packages ghostscript)
   #:use-module (gnu packages gl)
   #:use-module (gnu packages glib)
-  #:use-module (gnu packages geo)
+  #:use-module (gnu packages golang)
   #:use-module (gnu packages gtk)
   #:use-module (gnu packages image)
   #:use-module (gnu packages java)
@@ -145,7 +146,7 @@
       #:strip-binaries? #f
       #:patchelf-plan
       #~(let* ((patchelf-inputs (list "gcc:lib" "glib" "glibc" "gtk+"
-                                      "libspatialite" "sqlite" "openjdk17"
+                                      "libspatialite" "sqlite" "jetbrains-jdk"
                                       "out"))
                (bin-path "bin/"))
           (append
@@ -189,4 +190,66 @@
     (synopsis "JetBrains IntelliJ IDEA - Java and Kotlin IDE")
     (description "Java and Kotlin IDE, subscription based binary edition")
     (home-page "https://www.jetbrains.com/idea/")
+    (license #f)))
+
+(define-public goland
+  (package
+    (version "2023.1")
+    (name "goland")
+    (source (origin
+              (method url-fetch)
+              (uri (string-append "https://download-cdn.jetbrains.com/go/goland-"
+				  version ".tar.gz"))
+              (sha256
+               (base32
+                "0b1dsjfkjqy8shlbsgln4iwlnqff2j64whs9zwrf5i7m3r3y427j"))))
+    (build-system binary-build-system)
+    (inputs
+     `(("jetbrains-jdk" ,jetbrains-jdk)
+       ("openjdk17" ,openjdk17)
+       ("gcc:lib" ,gcc "lib") ("glib" ,glib) ("glibc" ,glibc)
+       ("libspatialite" ,libspatialite) ("python" ,python) ("sqlite" ,sqlite)
+       ("gtk+" ,gtk+)
+       ("e2fsprogs" ,e2fsprogs)
+       ("go" ,go-1.20)))
+    (native-inputs (list patchelf which))
+    (arguments
+     (list
+      #:patchelf-plan
+      #~(let* ((patchelf-inputs (list "gcc:lib" "glib" "glibc" "gtk+"
+                                      "libspatialite" "sqlite" "openjdk17"
+                                      "out"))
+               (bin-path "bin/"))
+          (append
+           (map (lambda (file) (list (string-append bin-path file) patchelf-inputs))
+                '("libdbm.so" "fsnotifier"))))
+      #:phases
+      #~(modify-phases %standard-phases
+          (add-after 'install 'wrap-launcher
+            (lambda* (#:key inputs outputs #:allow-other-keys)
+              (let ((goland-sh (string-append (assoc-ref outputs "out") "/bin/goland.sh"))
+                    (jdk-path (assoc-ref inputs "jetbrains-jdk"))
+                    (jdk17-path (assoc-ref inputs "openjdk17"))
+                    (go-root (string-append (assoc-ref inputs "go") "/lib/go")))
+                (wrap-program goland-sh
+                  `("IDEA_JDK" = (,jdk17-path))
+                  `("GOLAND_JDK" = (,jdk17-path))
+                  `("GOROOT" = (,go-root))
+                  `("_JAVA_AWT_WM_NONREPARENTING" = ("1"))
+                  `("AWT_TOOLKIT" = ("MToolkit"))
+                  `("CGO_CPPFLAGS" " " prefix ("-U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0"))
+                  `("LD_LIBRARY_PATH" ":" prefix
+                    (,(string-append (assoc-ref inputs "e2fsprogs") "/lib"))))))))
+      #:install-plan
+       #~'(("bin" "bin")
+           ("help" "help")
+           ("lib" "lib")
+           ("license" "license")
+           ("plugins" "plugins")
+           ("build.txt" "build.txt")
+           ("Install-Linux-tar.txt" "Install-Linux-tar.txt")
+           ("product-info.json" "product-info.json"))))
+    (synopsis "JetBrains Golang - IDE")
+    (description "Golang subscription based binary edition")
+    (home-page "https://www.jetbrains.com/go/")
     (license #f)))
