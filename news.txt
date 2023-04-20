@@ -1,6 +1,12 @@
 (channel-news
  (version 0)
 
+ (entry (commit "41a6741f2677fc29875baaa152c3dc8d1b530efb")
+        (title (en "Llama: Adding system76-io-dkms"))
+        (body
+         (en "Add DKMS module for controlling System76 Io board
+"))) 
+
  (entry (commit "dafaaa6b4f5ab932ae86f2e2f2116a46bf654849")
         (title (en "Llama: Adding Jetbrains Goland"))
         (body
