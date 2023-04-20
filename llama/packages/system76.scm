@@ -4,7 +4,8 @@
   #:use-module (guix gexp)
   #:use-module (guix git-download)
   #:use-module ((guix licenses) #:prefix license:)
-  #:use-module (guix packages))
+  #:use-module (guix packages)
+  #:use-module (nongnu packages linux))
 
 (define-public system76-io-dkms
   (package
@@ -31,3 +32,11 @@
     (synopsis "DKMS module for controlling System76 Io board")
     (description "DKMS module for controlling System76 Io board")
     (license license:gpl3)))
+
+(define-public system76-io-dkms-non-free
+  (package
+    (name "system76-io-dkms-non-free")
+    (inherit system76-io-dkms)
+    (arguments
+     (append (package-arguments system76-io-dkms)
+             (list #:linux linux)))))
