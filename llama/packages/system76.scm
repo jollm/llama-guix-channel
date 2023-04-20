@@ -35,8 +35,8 @@
 
 (define-public system76-io-dkms-non-free
   (package
-    (name "system76-io-dkms-non-free")
     (inherit system76-io-dkms)
+    (name "system76-io-dkms-non-free")
     (arguments
      (append (package-arguments system76-io-dkms)
              (list #:linux linux)))))
