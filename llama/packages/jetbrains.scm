@@ -67,7 +67,7 @@
                ("libxtst" ,libxtst)
                ("mate" ,mate)
                ("mesa" ,mesa)
-               ("nss" ,nss-next)
+               ("nss" ,nss)
                ("nspr" ,nspr)
                ("pango" ,pango)
                ("zlib" ,zlib)))
