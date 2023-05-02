@@ -34,7 +34,7 @@
                (base32
                 "0zc250ivlfx0klnk55k38krmpzg212b0cyivr469aqgksybnc253"))))
     (build-system copy-build-system)
-    (inputs (list openssl libssh libxml2 libxslt libarchive))
+    (inputs (list openssl-1.1 libssh libxml2 libxslt libarchive))
     (propagated-inputs (list curl perl ruby xz))
     (native-inputs (list glibc cpio rpm patchelf patool which))
     (arguments
