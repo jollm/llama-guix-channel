@@ -7,7 +7,7 @@
   #:use-module (gnu packages file)
   #:use-module (gnu packages glib)
   #:use-module (gnu packages package-management)
-  #:use-module (gnu packages patool)
+  #:use-module (llama packages patool)
   #:use-module (guix download)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix build copy-build-system)
