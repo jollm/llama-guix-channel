@@ -255,6 +255,24 @@ sending the code to me, so I can integrate it into this file.")
      "Generate mermaid diagrams using org-mode, org-babel and mermaid.cli")
     (license #f)))
 
+(define-public emacs-mermaid-mode
+  (package
+    (name "emacs-mermaid-mode")
+    (version "20230517.1527")
+    (source (origin
+              (method git-fetch)
+              (uri (git-reference
+                    (url "https://github.com/abrochard/mermaid-mode.git")
+                    (commit "105271870a872ae7a91838454b064a1153353b5f")))
+              (sha256 (base32
+                       "1973iyjf1wigs4aw7rmh9marchph6868c7lcnklwb5hibgqnvacb"))))
+    (build-system emacs-build-system)
+    (home-page "https://github.com/abrochard/mermaid-mode")
+    (synopsis "major mode for working with mermaid graphs")
+    (description
+     "Major mode for working with mermaid graphs.  See https://mermaid-js.github.io/")
+    (license #f)))
+
 (define-public emacs-elfeed-tube
   (package
     (name "emacs-elfeed-tube")
