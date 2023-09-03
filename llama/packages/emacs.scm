@@ -195,15 +195,15 @@ sending the code to me, so I can integrate it into this file.")
 (define-public emacs-go-gen-test
   (package
     (name "emacs-go-gen-test")
-    (version "20230127.1422")
+    (version "20230616.2053")
     (source (origin
               (method git-fetch)
               (uri (git-reference
                     (url "https://github.com/s-kostyaev/go-gen-test.git")
-                    (commit "f84f4177af7fcbe10ce2116d5417ad5f0485034b")))
+                    (commit "af00a9abbaba2068502327ecdef574fd894a884b")))
               (sha256
                (base32
-                "1bxa3870vr2hyaj4isvhzfhhs56qyrp9lngapsggxhdq1r9vwqra"))))
+                "0q81zkyrl1njwxq29rx7gq9m9w3jags6akxzl7jd9yrnl4k2l27p"))))
     (build-system emacs-build-system)
     (arguments
      '(#:include '("^go-gen-test.el$")
