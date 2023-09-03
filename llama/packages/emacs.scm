@@ -288,7 +288,7 @@ sending the code to me, so I can integrate it into this file.")
     (build-system emacs-build-system)
     (propagated-inputs (list emacs-aio emacs-elfeed emacs-mpv))
     (arguments '(#:include '("^elfeed-tube.el$" "^elfeed-tube-utils.el$"
-                             "^elfeed-tube-fill.el$")
+                             "^elfeed-tube-fill.el$" "^elfeed-tube-mpv.el$")
                  #:exclude '()))
     (home-page "https://github.com/karthink/elfeed-tube")
     (synopsis "YouTube integration for Elfeed")
