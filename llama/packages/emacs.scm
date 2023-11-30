@@ -276,15 +276,15 @@ sending the code to me, so I can integrate it into this file.")
 (define-public emacs-elfeed-tube
   (package
     (name "emacs-elfeed-tube")
-    (version "20230627.1930")
+    (version "20231022.1733")
     (source (origin
               (method git-fetch)
               (uri (git-reference
                     (url "https://github.com/karthink/elfeed-tube.git")
-                    (commit "3f801e340ee92e4850486fea5f08bcbdbc89254c")))
+                    (commit "0291038a00c17d780aded05b1e90860a2d586546")))
               (sha256
                (base32
-                "1zm35xc3vswr5jkf4yj6dshc7axk2dgxsq02v0hk9i149ga4ygsn"))))
+                "0pza83vfih4gmqmf3mvpp9nxvhd9rsvszh71r9vfmdafzwqkc31p"))))
     (build-system emacs-build-system)
     (propagated-inputs (list emacs-aio emacs-elfeed emacs-mpv))
     (arguments '(#:include '("^elfeed-tube.el$" "^elfeed-tube-utils.el$"
