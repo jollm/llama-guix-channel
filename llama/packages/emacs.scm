@@ -258,14 +258,14 @@ sending the code to me, so I can integrate it into this file.")
 (define-public emacs-mermaid-mode
   (package
     (name "emacs-mermaid-mode")
-    (version "20230517.1527")
+    (version "20240123.1729")
     (source (origin
               (method git-fetch)
               (uri (git-reference
                     (url "https://github.com/abrochard/mermaid-mode.git")
-                    (commit "105271870a872ae7a91838454b064a1153353b5f")))
+                    (commit "d8bfb8c819cda9ead19c871842f6b0b8d56c56c0")))
               (sha256 (base32
-                       "1973iyjf1wigs4aw7rmh9marchph6868c7lcnklwb5hibgqnvacb"))))
+                       "0vsnyn2g8525k9vgmifzix9gd1g3149h54ni6rrc1y05h91883fv"))))
     (build-system emacs-build-system)
     (home-page "https://github.com/abrochard/mermaid-mode")
     (synopsis "major mode for working with mermaid graphs")
@@ -276,15 +276,15 @@ sending the code to me, so I can integrate it into this file.")
 (define-public emacs-elfeed-tube
   (package
     (name "emacs-elfeed-tube")
-    (version "20231022.1733")
+    (version "20240123.1825")
     (source (origin
               (method git-fetch)
               (uri (git-reference
                     (url "https://github.com/karthink/elfeed-tube.git")
-                    (commit "0291038a00c17d780aded05b1e90860a2d586546")))
+                    (commit "92c66d6adcebe0588ccf811616decf7ef8a8ac65")))
               (sha256
                (base32
-                "0pza83vfih4gmqmf3mvpp9nxvhd9rsvszh71r9vfmdafzwqkc31p"))))
+                "1mz2mk9vzdpj0x6dv1grkz03algrsf62kfqrlhnww60vnzqi6i3r"))))
     (build-system emacs-build-system)
     (propagated-inputs (list emacs-aio emacs-elfeed emacs-mpv))
     (arguments '(#:include '("^elfeed-tube.el$" "^elfeed-tube-utils.el$"
