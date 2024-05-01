@@ -322,3 +322,34 @@ fetching metadata.  You can then call `elfeed-tube-fetch to manually fetch data
 for specific feed entries.  See the customization group `elfeed-tube for more
 options.  See the README for more information.")
     (license license:unlicense)))
+
+(define-public emacs-reverso
+  (package
+    (name "emacs-reverso")
+    (version "20240113.2128")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/SqrtMinusOne/reverso.el.git")
+             (commit "d1b39da3c7df1541f98435f3172a7ff4f3123634")))
+       (sha256
+        (base32 "1fpk5wyzlssfrm4jbsrflxvlfn80yh6y1nh63ml8barf1nypsx55"))))
+    (build-system emacs-build-system)
+    (propagated-inputs (list emacs-transient emacs-request))
+    (home-page "https://github.com/SqrtMinusOne/reverso.el")
+    (synopsis "Translation, grammar checking, context search")
+    (description
+     "Emacs client for the https://reverso.net service.  The service doesn't offer an
+official API, so this package accesses it with whatever means possible.  The
+implemented features are as follows: - Translation (run `reverso-translate') -
+\"Context\" or bilingual concordances (run `reverso-context') - Grammar check (run
+`reverso-grammar') - Synonyms search (run `reverso-synonyms') - Verb conjugation
+(run `reverso-conjugation') There's also `reverso-grammar-buffer', which does
+grammar check in the current buffer and displays the result with overlays.  The
+`reverso command is the entrypoint to all the functionality.  The Elisp API of
+the listed features is as follows: - `reverso--translate - `reverso--get-context
+- `reverso--get-grammar - `reverso--get-context - `reverso--get-synonyms -
+`reverso--get-conjugation Also check out the README file at
+<https://github.com/@code{SqrtMinusOne/reverso.el>}")
+    (license #f)))
