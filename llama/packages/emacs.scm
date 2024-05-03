@@ -353,3 +353,66 @@ the listed features is as follows: - `reverso--translate - `reverso--get-context
 `reverso--get-conjugation Also check out the README file at
 <https://github.com/@code{SqrtMinusOne/reverso.el>}")
     (license #f)))
+
+(define-public emacs-language-detection
+  (package
+    (name "emacs-language-detection")
+    (version "20161123.1813")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url
+              "https://github.com/andreasjansson/language-detection.el.git")
+             (commit "54a6ecf55304fba7d215ef38a4ec96daff2f35a4")))
+       (sha256
+        (base32 "0p8kim8idh7hg9398kpgjawkxq9hb6fraxpamdkflg8gjk0h5ppa"))))
+    (build-system emacs-build-system)
+    (home-page "https://github.com/andreasjansson/language-detection.el")
+    (synopsis "Automatic language detection from code snippets")
+    (description
+     "Automatic programming language detection using pre-trained random forest
+classifier.  Supported languages: * ada * awk * c * clojure * cpp * csharp * css
+* dart * delphi * emacslisp * erlang * fortran * fsharp * go * groovy * haskell
+* html * java * javascript * json * latex * lisp * lua * matlab * objc * perl *
+php * prolog * python * r * ruby * rust * scala * shell * smalltalk * sql *
+swift * visualbasic * xml Entrypoints: * language-detection-buffer - When called
+interactively, prints the language of the current buffer to the echo area - When
+called non-interactively, returns the language of the current buffer *
+language-detection-string - Non-interactive function, returns the language of
+its argument")
+    (license #f)))
+
+(define-public emacs-shrface
+  (package
+    (name "emacs-shrface")
+    (version "20240401.957")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/chenyanming/shrface.git")
+             (commit "b82a174ee33f19ed96c7e8c85ec362eab147d4aa")))
+       (sha256
+        (base32 "0qspg55r397p6p16c4cps547x2w7gdplshy3scr810iwphrzsvfy"))))
+    (build-system emacs-build-system)
+    (propagated-inputs (list emacs-org emacs-language-detection))
+    (home-page "https://github.com/chenyanming/shrface")
+    (synopsis "Extend shr/eww with org features and analysis capability")
+    (description
+     "This package extends `shr / `eww with org features and analysis capability.  It
+can be used in `dash-docs', `eww', `nov.el', `mu4e', `anki.el', etc. -
+Configurable org-like heading faces, headline bullets, item bullets, paragraph
+indentation, fill-column, item bullet, versatile hyper
+links(http/https/file/mailto/etc) face and so on. - Browse the internet or local
+html file with `eww just like org mode. - Read dash docsets with `dash-docs and
+the beauty of org faces. - Read epub files with `nov.el , just like org mode. -
+Read html email with `mu4e , the same reading experience just like org mode
+without formatting html to org file. - Switch/jump the headlines just like
+org-mode in `eww and `nov.el with `imenu - Toggle/cycle the headlines just like
+org-mode in `eww and `nov.el with `outline-minor-mode and
+`org-cycle'/`org-shifttab - Analysis capability: - Headline analysis: List all
+headlines with clickable texts. - URL analysis: List all classified URL with
+clickable texts. - Export HTML buffer to an org file using shr engine (no Pandoc
+is needed).")
+    (license #f)))
