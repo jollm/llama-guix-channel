@@ -416,3 +416,26 @@ headlines with clickable texts. - URL analysis: List all classified URL with
 clickable texts. - Export HTML buffer to an org file using shr engine (no Pandoc
 is needed).")
     (license #f)))
+
+(define-public emacs-pollen-mode
+  (package
+    (name "emacs-pollen-mode")
+    (version "20220904.447")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/lijunsong/pollen-mode.git")
+             (commit "19174fab69ce4d2ae903ef2c3da44054e8b84268")))
+       (sha256
+        (base32 "1w15v2xj01h9j7glg9854zszh7mi1cdshaacjhplk64s6c9brkfp"))))
+    (build-system emacs-build-system)
+    (arguments
+     '(#:include '("^pollen-mode.el$")
+       #:exclude '()))
+    (home-page "https://github.com/lijunsong/pollen-mode")
+    (synopsis "major mode for editing pollen files")
+    (description
+     "Pollen mode provides editing assistant for pollen, the digital-publishing tool.
+See README for usage in detail.")
+    (license #f)))
