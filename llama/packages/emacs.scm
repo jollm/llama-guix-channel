@@ -276,20 +276,22 @@ sending the code to me, so I can integrate it into this file.")
 (define-public emacs-elfeed-tube
   (package
     (name "emacs-elfeed-tube")
-    (version "20240123.1825")
-    (source (origin
-              (method git-fetch)
-              (uri (git-reference
-                    (url "https://github.com/karthink/elfeed-tube.git")
-                    (commit "92c66d6adcebe0588ccf811616decf7ef8a8ac65")))
-              (sha256
-               (base32
-                "1mz2mk9vzdpj0x6dv1grkz03algrsf62kfqrlhnww60vnzqi6i3r"))))
+    (version "20250321.1717")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/karthink/elfeed-tube.git")
+             (commit "79d5a08d76ea3ae96d7def9a5e2ede2e3562462a")))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0pzxama7qyj9i4x74im5r875b7vv1zrkgfncf5j1qxixj96jzfna"))))
     (build-system emacs-build-system)
-    (propagated-inputs (list emacs-aio emacs-elfeed emacs-mpv))
-    (arguments '(#:include '("^elfeed-tube.el$" "^elfeed-tube-utils.el$"
-                             "^elfeed-tube-fill.el$" "^elfeed-tube-mpv.el$")
-                 #:exclude '()))
+    (propagated-inputs (list emacs-elfeed emacs-aio))
+    (arguments
+     '(#:include '("^elfeed-tube.el$" "^elfeed-tube-utils.el$"
+                   "^elfeed-tube-fill.el$")
+       #:exclude '()))
     (home-page "https://github.com/karthink/elfeed-tube")
     (synopsis "YouTube integration for Elfeed")
     (description
@@ -321,7 +323,7 @@ disk for all entries. `elfeed-tube-auto-fetch-p': Unset this boolean to turn off
 fetching metadata.  You can then call `elfeed-tube-fetch to manually fetch data
 for specific feed entries.  See the customization group `elfeed-tube for more
 options.  See the README for more information.")
-    (license license:unlicense)))
+    (license #f)))
 
 (define-public emacs-reverso
   (package
