@@ -1,5 +1,6 @@
 (define-module (llama packages emacs)
   #:use-module (gnu packages base)
+  #:use-module (gnu packages emacs)
   #:use-module (gnu packages emacs-xyz)
   #:use-module (gnu packages file)
   #:use-module (gnu packages package-management)
@@ -10,6 +11,25 @@
   #:use-module (guix git-download)
   #:use-module (guix packages)
   #:use-module (guix utils))
+
+(define-public emacs-xelb-next
+  (package
+    (inherit emacs-xelb)
+    (name "emacs-xelb-next")
+    (arguments
+     (substitute-keyword-arguments (package-arguments emacs-xelb)
+       ((#:emacs emacs) `,emacs-next)))))
+
+(define-public emacs-exwm-next
+  (package
+    (inherit emacs-exwm)
+    (name "emacs-exwm-next")
+    (synopsis "Emacs X window manager (for Emacs next)")
+    (propagated-inputs
+     (list emacs-xelb-next))
+    (arguments
+     (substitute-keyword-arguments (package-arguments emacs-exwm)
+       ((#:emacs emacs) `,emacs-next)))))
 
 (define-public emacs-pcache
   (package
