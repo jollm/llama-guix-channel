@@ -36,8 +36,8 @@
     (inherit emacs-org-modern)
     (name "emacs-org-modern-next")
     (arguments
-     (substitute-keyword-arguments (package-arguments emacs-org-modern)
-       ((#:emacs emacs) `,emacs-next)))))
+     `(#:emacs ,emacs-next)
+     )))
 
 (define-public emacs-pcache
   (package
