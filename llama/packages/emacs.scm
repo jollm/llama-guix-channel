@@ -31,6 +31,14 @@
      (substitute-keyword-arguments (package-arguments emacs-exwm)
        ((#:emacs emacs) `,emacs-next)))))
 
+(define-public emacs-org-modern-next
+  (package
+    (inherit emacs-org-modern)
+    (name "emacs-org-modern-next")
+    (arguments
+     (substitute-keyword-arguments (package-arguments emacs-org-modern)
+       ((#:emacs emacs) `,emacs-next)))))
+
 (define-public emacs-pcache
   (package
     (name "emacs-pcache")
