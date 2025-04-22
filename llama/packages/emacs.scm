@@ -174,10 +174,10 @@ sending the code to me, so I can integrate it into this file.")
             (method git-fetch)
             (uri (git-reference
                   (url "https://git.sr.ht/~joj/exlybar")
-                  (commit "88eb0a5ee322a1e1026bb21a63acfd2e5c91b04f")))
+                  (commit "873befaed7cb48fe30e8d25eff07247ab7e1f069")))
             (sha256
              (base32
-              "0h25l0nkq5ssbypfwdqjjkvv7lbm1dasmshahccxkrbr3921l98a"))))
+              "1n1fj0y107q864185rczvns628x8yq7biq8zn136mzdqnm6im1fv"))))
    (build-system emacs-build-system)
    (propagated-inputs (list
 		       emacs-f emacs-s emacs-dash
@@ -186,10 +186,7 @@ sending the code to me, so I can integrate it into this file.")
 		       emacs-all-the-icons))
    (arguments
     (list
-     #:include #~(cons*
-                   "^doc/.*\\.info$"
-                   "^modules/[^/]*\\.el$"
-                   %default-include)))
+     #:include #~(cons "^doc/.*\\.info$" %default-include)))
    (home-page "https://github.com/jollm/exlybar")
    (synopsis "Emacs polybar-like thing")
    (description
