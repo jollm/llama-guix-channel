@@ -169,15 +169,15 @@ sending the code to me, so I can integrate it into this file.")
 (define-public emacs-exlybar
   (package
    (name "emacs-exlybar")
-   (version "0.23.0")
+   (version "0.24.0")
    (source (origin
             (method git-fetch)
             (uri (git-reference
                   (url "https://git.sr.ht/~joj/exlybar")
-                  (commit "v0.23.0")))
+                  (commit "v0.24.0")))
             (sha256
              (base32
-              "0nbfinva2g8banksj5xp33xwzig0i8z7114swwnrqd5pbdylm3xh"))))
+              "0sphi3c0d56190xr7psp9c0qpqy08x91h59s6z3in00l7i5yya0v"))))
    (build-system emacs-build-system)
    (propagated-inputs (list
 		       emacs-f emacs-s emacs-dash
@@ -193,10 +193,7 @@ sending the code to me, so I can integrate it into this file.")
     "This module uses xelb to build polybar like modules for displaying status information.
 
      *Please see the website for a detailed README.*
-
-     To use this module, load and enable it as follows:
-     (use-package exlybar
-       :config (exlybar))")
+")
    (license license:gpl3+)))
 
 (define-public emacs-gotest
