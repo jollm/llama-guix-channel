@@ -47,6 +47,12 @@
      (inherit emacs-org-modern)
      (name "emacs-org-modern-next"))))
 
+(define-public emacs-vertico-next
+  (emacs-next-instead-of-emacs
+   (package
+     (inherit emacs-vertico)
+     (name "emacs-vertico-next"))))
+
 (define-public emacs-pcache
   (package
     (name "emacs-pcache")
