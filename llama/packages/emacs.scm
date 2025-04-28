@@ -31,13 +31,21 @@
      (substitute-keyword-arguments (package-arguments emacs-exwm)
        ((#:emacs emacs) `,emacs-next)))))
 
+(define emacs-next-instead-of-emacs
+  (package-input-rewriting `((,emacs-minimal . ,emacs-next)
+                             (,emacs . ,emacs-next))))
+
+(define-public emacs-consult-next
+  (emacs-next-instead-of-emacs
+   (package
+    (inherit emacs-consult)
+    (name "emacs-consult-next"))))
+
 (define-public emacs-org-modern-next
-  (package
-    (inherit emacs-org-modern)
-    (name "emacs-org-modern-next")
-    (arguments
-     `(#:emacs ,emacs-next)
-     )))
+  (emacs-next-instead-of-emacs
+   (package
+     (inherit emacs-org-modern)
+     (name "emacs-org-modern-next"))))
 
 (define-public emacs-pcache
   (package
