@@ -31,27 +31,13 @@
      (substitute-keyword-arguments (package-arguments emacs-exwm)
        ((#:emacs emacs) `,emacs-next)))))
 
-(define emacs-next-instead-of-emacs
-  (package-input-rewriting `((,emacs-minimal . ,emacs-next)
-                             (,emacs . ,emacs-next))))
-
-(define-public emacs-consult-next
-  (emacs-next-instead-of-emacs
-   (package
-    (inherit emacs-consult)
-    (name "emacs-consult-next"))))
-
-(define-public emacs-org-modern-next
-  (emacs-next-instead-of-emacs
-   (package
-     (inherit emacs-org-modern)
-     (name "emacs-org-modern-next"))))
-
-(define-public emacs-vertico-next
-  (emacs-next-instead-of-emacs
-   (package
-     (inherit emacs-vertico)
-     (name "emacs-vertico-next"))))
+;;; Emacs helpful has a bug in Emacs 30 for unnamed functions
+(define-public emacs-helpful-no-tests
+  (package
+   (inherit emacs-helpful)
+   (name "emacs-helpful-no-tests")
+   (arguments
+     `(#:tests? #f))))
 
 (define-public emacs-pcache
   (package
