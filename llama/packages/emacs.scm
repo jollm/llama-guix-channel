@@ -351,6 +351,41 @@ for specific feed entries.  See the customization group `elfeed-tube for more
 options.  See the README for more information.")
     (license #f)))
 
+(define-public emacs-elfeed-tube-mpv
+  (package
+    (name "emacs-elfeed-tube-mpv")
+    (version "20230607.717")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/karthink/elfeed-tube.git")
+             (commit "79d5a08d76ea3ae96d7def9a5e2ede2e3562462a")))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0pzxama7qyj9i4x74im5r875b7vv1zrkgfncf5j1qxixj96jzfna"))))
+    (build-system emacs-build-system)
+    (propagated-inputs (list emacs-elfeed-tube emacs-mpv))
+    (arguments
+     '(#:include '("^elfeed-tube-mpv.el$")
+       #:exclude '()))
+    (home-page "https://github.com/karthink/elfeed-tube")
+    (synopsis "Control mpv from Elfeed")
+    (description
+     "This package provides integration with the mpv video player for `elfeed-tube
+entries, which see.  With `elfeed-tube-mpv loaded, clicking on a transcript
+segment in an Elfeed Youtube video feed entry will launch mpv at that time, or
+seek to that point if already playing.  It defines two commands and a minor
+mode: - `elfeed-tube-mpv': Start an mpv session that is \"connected\" to an Elfeed
+entry corresponding to a Youtube video.  You can use this command to start
+playback, or seek in mpv to a transcript segment, or enqueue a video in mpv if
+one is already playing.  Call with a prefix argument to spawn a new instance of
+mpv instead. - `elfeed-tube-mpv-where': Jump in Emacs to the transcript position
+corresponding to the current playback time in mpv. -
+`elfeed-tube-mpv-follow-mode': Follow along in the transcript in Emacs to the
+video playback.")
+    (license #f)))
+
 (define-public emacs-reverso
   (package
     (name "emacs-reverso")
