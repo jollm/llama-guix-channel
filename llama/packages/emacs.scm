@@ -169,15 +169,15 @@ sending the code to me, so I can integrate it into this file.")
 (define-public emacs-exlybar
   (package
    (name "emacs-exlybar")
-   (version "0.24.1")
+   (version "0.25.1")
    (source (origin
             (method git-fetch)
             (uri (git-reference
                   (url "https://git.sr.ht/~joj/exlybar")
-                  (commit "v0.24.1")))
+                  (commit "v0.25.1")))
             (sha256
              (base32
-              "1izf16h04h0y0fsahic639mmxa0z5s2jyvfx1lhg3ax4kphsp55v"))))
+              "0b5vmsp1g1bcl7g0bwgcjkpyaf18rxzns8lrpaij19z0ycd8b9fi"))))
    (build-system emacs-build-system)
    (propagated-inputs (list
 		       emacs-f emacs-s emacs-dash
