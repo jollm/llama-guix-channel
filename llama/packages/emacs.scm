@@ -90,15 +90,15 @@ key foo for 1 second (sleep-for 1) (pcache-get repo foo) ; => nil )")
 (define-public emacs-fontsloth
   (package
    (name "emacs-fontsloth")
-   (version "20230516.1901")
+   (version "0.17.1")
    (source (origin
             (method git-fetch)
             (uri (git-reference
                   (url "https://github.com/jollm/fontsloth.git")
-                  (commit "8dd771aae34ce282036c7533735e6251770fcbd0")))
+                  (commit "4869ff3279bfeb7285b2d00299498768f8ed0114")))
             (sha256
              (base32
-              "16yk55nvpn8s4cv9wlfm2zp9wvaianal7c5pkk2jxildw7ras55x"))))
+              "1hdn2v5rn4sd2qr3x5pi1sgdv5f46y3skk3zwapsng9wjj2hs8qc"))))
    (build-system emacs-build-system)
    (propagated-inputs (list emacs-f emacs-logito emacs-pcache emacs-stream))
    (home-page "https://github.com/jollm/fontsloth")
@@ -169,15 +169,15 @@ sending the code to me, so I can integrate it into this file.")
 (define-public emacs-exlybar
   (package
    (name "emacs-exlybar")
-   (version "0.25.1")
+   (version "0.25.2")
    (source (origin
             (method git-fetch)
             (uri (git-reference
                   (url "https://git.sr.ht/~joj/exlybar")
-                  (commit "v0.25.1")))
+                  (commit "v0.25.2")))
             (sha256
              (base32
-              "0b5vmsp1g1bcl7g0bwgcjkpyaf18rxzns8lrpaij19z0ycd8b9fi"))))
+              "1rljw1qdis68rkpiw2xsd4mdxbk6hh6wm1jjgd38yavxfi1pf89x"))))
    (build-system emacs-build-system)
    (propagated-inputs (list
 		       emacs-f emacs-s emacs-dash
