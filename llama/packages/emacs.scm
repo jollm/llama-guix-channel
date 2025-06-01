@@ -389,15 +389,16 @@ video playback.")
 (define-public emacs-reverso
   (package
     (name "emacs-reverso")
-    (version "20240113.2128")
+    (version "20250531.950")
     (source
      (origin
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/SqrtMinusOne/reverso.el.git")
-             (commit "d1b39da3c7df1541f98435f3172a7ff4f3123634")))
+             (commit "ecea6f2c6604a42bbf6f3d515616f32af68b4d9e")))
+       (file-name (git-file-name name version))
        (sha256
-        (base32 "1fpk5wyzlssfrm4jbsrflxvlfn80yh6y1nh63ml8barf1nypsx55"))))
+        (base32 "0j6lvjh7i4c1awvq1kldikv3xjjl8l2r5d3hb7x1knfxn488hv9s"))))
     (build-system emacs-build-system)
     (propagated-inputs (list emacs-transient emacs-request))
     (home-page "https://github.com/SqrtMinusOne/reverso.el")
@@ -414,7 +415,7 @@ grammar check in the current buffer and displays the result with overlays.  The
 the listed features is as follows: - `reverso--translate - `reverso--get-context
 - `reverso--get-grammar - `reverso--get-context - `reverso--get-synonyms -
 `reverso--get-conjugation Also check out the README file at
-<https://github.com/@code{SqrtMinusOne/reverso.el>}")
+<https://github.com/@code{SqrtMinusOne/reverso.el>}.")
     (license #f)))
 
 (define-public emacs-language-detection
