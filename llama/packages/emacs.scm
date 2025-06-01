@@ -557,3 +557,50 @@ https://github.com/ffevotte/sync-recentf.")
     (description "This package provides tools for assembling an @acronym{ELPA,
 Emacs package archive}.")
     (license license:gpl3+)))
+
+(define-public emacs-aio-native
+  (package
+    (name "emacs-aio-native")
+    (version "1.0")
+    (source (origin
+              (method git-fetch)
+              (uri (git-reference
+                    (url "https://github.com/skeeto/emacs-aio")
+                    (commit version)))
+              (file-name (git-file-name name version))
+              (sha256
+               (base32
+                "1y7j10j74r3fy0rcb8g3cm9nlls34qb0pz9xkia7psp77syrlz54"))))
+    (build-system emacs-build-system)
+    (arguments
+     (list
+      #:tests? #t
+      #:test-command #~(list "emacs" "--batch"
+                             "-l" "aio-test.el"
+                             "-f" "ert-run-tests-batch-and-exit")
+      #:phases
+      #~(modify-phases %standard-phases
+          (add-after 'unpack 'defstruct-aio-select
+            (lambda _
+              (emacs-batch-edit-file "aio.el"
+                `(progn
+                  (goto-char (point-min))
+                  (re-search-forward "(defun aio-make-select ")
+                  (forward-line -1)
+                  (insert "(cl-defstruct (aio-select (:constructor nil)
+                          (:copier nil))
+  (mem (make-hash-table :test 'eq))
+  (seen (make-hash-table :test 'eq :weakness 'key))
+  (queue (cons nil nil))
+  (callback nil))
+")
+                  (basic-save-buffer))))))))
+    (propagated-inputs
+     (list emacs-elfeed emacs-skewer-mode))
+    (home-page "https://github.com/skeeto/emacs-aio")
+    (synopsis "Async/Await for Emacs Lisp")
+    (description "@code{aio} is to Emacs Lisp as @code{asyncio} is to Python.
+This package builds upon Emacs generators to provide functions that pause
+while they wait on asynchronous events.  They do not block any thread while
+paused.")
+    (license license:unlicense)))
