@@ -537,3 +537,23 @@ you make improvements to this code or have suggestions, please do not hesitate
 to fork the repository or submit bug reports on github.  The repository is at:
 https://github.com/ffevotte/sync-recentf.")
     (license #f)))
+
+(define-public emacs-package-build-next
+  (package
+    (name "emacs-package-build-next")
+    (version "20250531.59f91")
+    (source (origin
+              (method git-fetch)
+              (uri (git-reference
+                    (url "https://github.com/melpa/package-build")
+                    (commit "59f91ad5026eaf21db72973de89b56a5d1597fb3")))
+              (file-name (git-file-name name version))
+              (sha256
+               (base32
+                "12jghjj40iccb4c1aj2aizsxmqd6aglf0008lh8i95s62r070qa5"))))
+    (build-system emacs-build-system)
+    (home-page "https://github.com/melpa/package-build")
+    (synopsis "Tools for assembling an Emacs package archive")
+    (description "This package provides tools for assembling an @acronym{ELPA,
+Emacs package archive}.")
+    (license license:gpl3+)))
