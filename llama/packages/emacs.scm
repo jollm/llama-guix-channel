@@ -90,15 +90,15 @@ key foo for 1 second (sleep-for 1) (pcache-get repo foo) ; => nil )")
 (define-public emacs-fontsloth
   (package
    (name "emacs-fontsloth")
-   (version "0.17.2")
+   (version "0.18.0")
    (source (origin
             (method git-fetch)
             (uri (git-reference
                   (url "https://github.com/jollm/fontsloth.git")
-                  (commit "70b92129b52631eed248f71429a887901306451a")))
+                  (commit "ff63c1769fc15a3b2addcdc6a6156d88eb555c7d")))
             (sha256
              (base32
-              "0zc59grf5xk4vav9n5gg4mn8kcaw55pvcibl93paqs26mhxc50vc"))))
+              "1mxyvj1swgvb5bi3x88ywsjpg7zplq5p1b0hxxsmxp19gzjvfgi9"))))
    (build-system emacs-build-system)
    (propagated-inputs (list emacs-f emacs-logito emacs-pcache emacs-stream))
    (home-page "https://github.com/jollm/fontsloth")
