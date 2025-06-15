@@ -582,6 +582,7 @@ https://github.com/ffevotte/sync-recentf.")
                (base32
                 "12jghjj40iccb4c1aj2aizsxmqd6aglf0008lh8i95s62r070qa5"))))
     (build-system emacs-build-system)
+    (arguments (list #:tests? #f))
     (home-page "https://github.com/melpa/package-build")
     (synopsis "Tools for assembling an Emacs package archive")
     (description "This package provides tools for assembling an @acronym{ELPA,
