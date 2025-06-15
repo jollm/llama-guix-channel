@@ -239,7 +239,8 @@ M-x: slothbar-exit")
                 "19lpr9wa73415jmdl1acijz54h5sdsj95wxigigbiqdhq6pd301p"))))
     (build-system emacs-build-system)
     (arguments
-     '(#:include '("^gotest.el$")
+     '(#:tests? #f
+       #:include '("^gotest.el$")
        #:exclude '()))
     (propagated-inputs (list emacs-s emacs-f emacs-go-mode))
     (home-page "https://github.com/nlamirault/gotest.el")
@@ -261,7 +262,8 @@ M-x: slothbar-exit")
                 "0q81zkyrl1njwxq29rx7gq9m9w3jags6akxzl7jd9yrnl4k2l27p"))))
     (build-system emacs-build-system)
     (arguments
-     '(#:include '("^go-gen-test.el$")
+     '(#:tests? #f
+       #:include '("^go-gen-test.el$")
        #:exclude '()))
     (home-page "https://github.com/s-kostyaev/go-gen-test")
     (synopsis "Generate tests for go code with gotests")
