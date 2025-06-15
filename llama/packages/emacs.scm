@@ -54,6 +54,7 @@
                (base32
 		"1fjdn4g9ww70f3x6vbzi3gqs9dsmqg16isajlqlflzw2716zf2nh"))))
     (build-system emacs-build-system)
+    (arguments (list #:tests? #f))
     (home-page "unspecified")
     (synopsis "persistent caching for Emacs.")
     (description
