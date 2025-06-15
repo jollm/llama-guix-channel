@@ -273,22 +273,23 @@ M-x: slothbar-exit")
 (define-public emacs-impostman
   (package
     (name "emacs-impostman")
-    (version "20230111.2012")
-    (source (origin
-              (method git-fetch)
-              (uri (git-reference
-                    (url "https://github.com/flashcode/impostman.git")
-                    (commit "936575500f733c2428ba878f9400f3eef8c9645e")))
-              (sha256
-               (base32
-                "16zd5bk7s1h9yrrsk0ngpzb4cfyj4gkmq70m0ijsc94az7m9rlx3"))))
+    (version "20250412.1521")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/flashcode/impostman.git")
+             (commit "2cb9c520329044cdf51bc75f367138a1facc84fb")))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "18nvwnvh1d79cq1p2axpccy2pqq043ymhravrlla69qrgl0x5pxf"))))
     (build-system emacs-build-system)
-    (home-page "https://github.com/flashcode/impostman.git")
-    (synopsis "Import of Postman collections in Emacs")
+    (arguments (list #:tests? #f))
+    (home-page "https://github.com/flashcode/impostman")
+    (synopsis "Import Postman collections")
     (description
-     "Postman collections and environments can be imported and used with these Emacs HTTP clients:
-    verb
-    restclient")
+     "Import Postman collections/environments to use them with your favorite Emacs
+HTTP client: - verb - restclient - your custom output.")
     (license #f)))
 
 (define-public emacs-ob-mermaid
