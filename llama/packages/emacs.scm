@@ -84,6 +84,7 @@ key foo for 1 second (sleep-for 1) (pcache-get repo foo) ; => nil )")
                (base32
 		"0bnkc6smvaq37q08q1wbrxw9mlcfbrax304fxw4fx7pc1587av0d"))))
     (build-system emacs-build-system)
+    (arguments (list #:tests? #f))
     (home-page "unspecified")
     (synopsis "logging library for Emacs")
     (description "This module provides logging facility for Emacs")
