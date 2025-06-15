@@ -4,6 +4,7 @@
   #:use-module (gnu packages emacs-xyz)
   #:use-module (gnu packages file)
   #:use-module (gnu packages package-management)
+  #:use-module (gnu packages xorg)
   #:use-module (guix download)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix build-system emacs)
@@ -90,17 +91,17 @@ key foo for 1 second (sleep-for 1) (pcache-get repo foo) ; => nil )")
 (define-public emacs-fontsloth
   (package
    (name "emacs-fontsloth")
-   (version "0.18.0")
+   (version "0.19.1")
    (source (origin
             (method git-fetch)
             (uri (git-reference
                   (url "https://github.com/jollm/fontsloth.git")
-                  (commit "ff63c1769fc15a3b2addcdc6a6156d88eb555c7d")))
+                  (commit "fd37b78a789c0dfb6d718b4fc88bcec6bdd4272d")))
             (sha256
              (base32
-              "1mxyvj1swgvb5bi3x88ywsjpg7zplq5p1b0hxxsmxp19gzjvfgi9"))))
+              "117nijr6w7hp8lxgs6s2bzrkn02vpz80wqzsf7718va4csigm83z"))))
    (build-system emacs-build-system)
-   (propagated-inputs (list emacs-f emacs-logito emacs-pcache emacs-stream))
+   (propagated-inputs (list emacs-async emacs-f emacs-logito emacs-pcache emacs-stream))
    (home-page "https://github.com/jollm/fontsloth")
    (synopsis "Elisp otf/ttf font loader/renderer")
    (description
@@ -166,34 +167,49 @@ writing your own glue should be straightforward.  And if you do, please consider
 sending the code to me, so I can integrate it into this file.")
     (license #f)))
 
-(define-public emacs-exlybar
+(define-public emacs-slothbar
   (package
-   (name "emacs-exlybar")
-   (version "0.27.0")
+   (name "emacs-slothbar")
+   (version "0.28.2")
    (source (origin
             (method git-fetch)
             (uri (git-reference
-                  (url "https://git.sr.ht/~joj/exlybar")
-                  (commit "v0.27.0")))
+                  (url "https://codeberg.org/agnes-li/slothbar")
+                  (commit "v0.28.2")))
             (sha256
              (base32
-              "0vilwgnrabfkhsd66xrhl7b8hm7xaywi6p1xarvlk9xjr47q4hin"))))
+              "0m5m768wrgcq4sw5jz2vhbyx6d3vhsg29dfijrrjs8g2r8fzjhwl"))))
    (build-system emacs-build-system)
    (propagated-inputs (list
 		       emacs-f emacs-s emacs-dash
 		       emacs-xelb emacs-fontsloth emacs-log4e
 		       emacs-backlight emacs-volume
-		       emacs-all-the-icons))
+		       emacs-all-the-icons
+                       xauth))
    (arguments
     (list
      #:include #~(cons "^doc/.*\\.info$" %default-include)))
-   (home-page "https://github.com/jollm/exlybar")
-   (synopsis "Emacs polybar-like thing")
+   (home-page "https://codeberg.org/agnes-li/slothbar")
+   (synopsis "Emacs X window manager status bar")
    (description
-    "This module uses xelb to build polybar like modules for displaying status information.
+    "This module uses xelb to build a bar for displaying status information.
 
-     *Please see the website for a detailed README.*
-")
+*Please see the website for a detailed README.*
+
+Minimal use-package example:
+(use-package slothbar
+  :config
+  (require 'slothbar-module-requires)
+  (setq slothbar-modules '(:left slothbar-tray-create slothbar-date-create
+                           slothbar-workspaces-create
+                           :right slothbar-wifi-create slothbar-volume-create
+                           slothbar-backlight-create slothbar-battery-create))
+  ;; to enable multi-screen support
+  (slothbar-randr-mode))
+
+then M-x: slothbar
+To exit:
+M-x: slothbar-exit")
    (license license:gpl3+)))
 
 (define-public emacs-gotest
