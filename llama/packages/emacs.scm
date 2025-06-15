@@ -39,7 +39,17 @@
    (inherit emacs-helpful)
    (name "emacs-helpful-no-tests")
    (arguments
-     `(#:tests? #f))))
+    `(#:tests? #f))))
+
+;;; emacs-el-mock one test fails if native compiled:
+;;; preserve-stacktrace doesn't check for compiled functions in the
+;;; stacktrace
+(define-public emacs-el-mock-no-tests
+  (package
+   (inherit emacs-el-mock)
+   (name "emacs-el-mock-no-tests")
+   (arguments
+    `(#:tests? #f))))
 
 (define-public emacs-pcache
   (package
