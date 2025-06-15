@@ -101,7 +101,7 @@ key foo for 1 second (sleep-for 1) (pcache-get repo foo) ; => nil )")
              (base32
               "117nijr6w7hp8lxgs6s2bzrkn02vpz80wqzsf7718va4csigm83z"))))
    (build-system emacs-build-system)
-   (propagated-inputs (list emacs-async emacs-f emacs-logito emacs-pcache emacs-stream))
+   (propagated-inputs (list emacs-async emacs-logito emacs-pcache emacs-stream))
    (home-page "https://github.com/jollm/fontsloth")
    (synopsis "Elisp otf/ttf font loader/renderer")
    (description
@@ -181,10 +181,10 @@ sending the code to me, so I can integrate it into this file.")
               "0m5m768wrgcq4sw5jz2vhbyx6d3vhsg29dfijrrjs8g2r8fzjhwl"))))
    (build-system emacs-build-system)
    (propagated-inputs (list
-		       emacs-f emacs-s emacs-dash
+		       emacs-s emacs-dash
 		       emacs-xelb emacs-fontsloth emacs-log4e
 		       emacs-backlight emacs-volume
-		       emacs-all-the-icons
+		       emacs-all-the-icons emacs-nerd-icons
                        xauth))
    (arguments
     (list
@@ -228,7 +228,7 @@ M-x: slothbar-exit")
     (arguments
      '(#:include '("^gotest.el$")
        #:exclude '()))
-    (propagated-inputs (list emacs-s emacs-f emacs-go-mode))
+    (propagated-inputs (list emacs-s emacs-go-mode))
     (home-page "https://github.com/nlamirault/gotest.el")
     (synopsis "Launch GO unit tests")
     (description "")
