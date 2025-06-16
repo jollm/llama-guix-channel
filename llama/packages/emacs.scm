@@ -592,6 +592,27 @@ https://github.com/ffevotte/sync-recentf.")
 Emacs package archive}.")
     (license license:gpl3+)))
 
+(define-public emacs-describe-hash
+  (package
+    (name "emacs-describe-hash")
+    (version "20200718.1556")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/Junker/describe-hash.git")
+             (commit "18e69a932d5495c8439571ba8f2d2ee123d434b1")))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1z2msiqwq7lqvyz6b2szyx1kpb6rv6irvwdcv36519mda0smhjlv"))))
+    (build-system emacs-build-system)
+    (home-page "https://github.com/Junker/describe-hash")
+    (synopsis "Help function for examining a hash map")
+    (description
+     "This package provides help function for examining hash map values, similar to
+`describe-variable'.")
+    (license #f)))
+
 (define-public emacs-aio-native
   (package
     (name "emacs-aio-native")
