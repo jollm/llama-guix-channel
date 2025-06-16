@@ -613,6 +613,60 @@ Emacs package archive}.")
 `describe-variable'.")
     (license #f)))
 
+(define-public emacs-predd
+  (package
+   (name "emacs-predd")
+   (version "0.1")
+   (source
+    (origin
+     (method git-fetch)
+     (uri (git-reference
+           (url "https://github.com/skeeto/predd.git")
+           (commit "695517712f0972cdb69b2765d13b45441ec4be57")))
+     (file-name (git-file-name name version))
+     (sha256
+      (base32 "03cyh2v9x0gj1nljz7spxbx6v0dcp0hkrh7g5z0rghfahv6iya46"))))
+   (build-system emacs-build-system)
+   (arguments (list #:tests? #f))
+   (home-page "https://github.com/skeeto/predd")
+   (synopsis "This library provides Clojure-style multimethods for Emacs Lisp,
+supporting multiple dispatch over an ad hoc type hierarchy.")
+   (description
+    "See also: http://nullprogram.com/blog/2013/12/18/")
+   (license #f)))
+
+(define-public emacs-caliper
+  (package
+   (name "emacs-caliper")
+   (version "0.1")
+   (source
+    (origin
+     (method git-fetch)
+     (uri (git-reference
+           (url "https://github.com/skeeto/caliper.git")
+           (commit "c368173c78751b2c084360e4b7b63e889773c190")))
+     (file-name (git-file-name name version))
+     (sha256
+      (base32 "141sgh0jhnibvd7k7znx22c8khavrx9rz9ja2vqsn0w93x36b11z"))))
+   (build-system emacs-build-system)
+   (propagated-inputs (list emacs-predd))
+   (home-page "https://github.com/skeeto/caliper")
+   (synopsis "This library provides exactly one function, caliper-object-size. Give
+it any lisp object and it will deeply compute the total number of
+bytes of memory consumed by that object (list, string, vector, etc.).")
+   (description
+    "This library provides exactly one function, caliper-object-size. Give
+it any lisp object and it will deeply compute the total number of
+bytes of memory consumed by that object (list, string, vector,
+etc.). It could be used to optmize memory usage of an elisp program.
+
+It's not possible to get exact byte counts for complex built-in types,
+such as hash-tables, buffers, and char-tables so only a rough estimate
+is returned based on the elisp-accessible contents.
+
+Requires the predicate dispatch predd package.")
+   (license #f)))
+
 (define-public emacs-aio-native
   (package
     (name "emacs-aio-native")
