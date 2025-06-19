@@ -667,6 +667,33 @@ is returned based on the elisp-accessible contents.
 Requires the predicate dispatch predd package.")
    (license #f)))
 
+(define-public emacs-mixed-pitch
+  (package
+    (name "emacs-mixed-pitch")
+    (version "20210304.1900")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://gitlab.com/jabranham/mixed-pitch.git")
+             (commit "519e05f74825abf04b7d2e0e38ec040d013a125a")))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1yf21gm4ziplmgx8yn7jqq45mwfiindbrman7fc5b9ifq78x9ryn"))))
+    (build-system emacs-build-system)
+    (arguments (list #:tests? #f))
+    (home-page "https://gitlab.com/jabranham/mixed-pitch")
+    (synopsis "Use a variable pitch, keeping fixed pitch where it's sensible")
+    (description
+     "`mixed-pitch-mode is a minor mode that enables mixing variable-pitch and
+fixed-pitch fonts in the same buffer.  The list `mixed-pitch-fixed-pitch-faces
+defines the faces that are kept fixed-pitch, everything else becomes
+variable-pitch.  Original idea came from https://ogbe.net/blog/toggle-serif.html
+Shared with permission.  Usage: (require mixed-pitch) (mixed-pitch-mode) Or, to
+apply mixed-pitch-mode in all text modes: (add-hook text-mode-hook
+#'mixed-pitch-mode).")
+    (license #f)))
+
 (define-public emacs-aio-native
   (package
     (name "emacs-aio-native")
