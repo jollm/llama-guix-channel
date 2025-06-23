@@ -694,6 +694,27 @@ apply mixed-pitch-mode in all text modes: (add-hook text-mode-hook
 #'mixed-pitch-mode).")
     (license #f)))
 
+(define-public emacs-ascii-cube
+  (package
+    (name "emacs-ascii-cube")
+    (version "2025.06.22")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/bchatterjee99/emacs-ascii-cube.git")
+             (commit "baa3a52b657524db9f8c709cbf1486503789a643")))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1javl0ml879i858vs5c8mcnkjpph417gxcsc4qzs2p0qw8fn26kx"))))
+    (build-system emacs-build-system)
+    (arguments (list #:tests? #f))
+    (home-page "https://github.com/bchatterjee99/emacs-ascii-cube")
+    (synopsis "Rotating ASCII cube in Emacs buffer.")
+    (description
+     "M-x ascii-cube RET.")
+    (license #f)))
+
 (define-public emacs-aio-native
   (package
     (name "emacs-aio-native")
