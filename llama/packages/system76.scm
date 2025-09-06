@@ -10,16 +10,16 @@
 (define-public system76-io-dkms
   (package
     (name "system76-io-dkms")
-    (version "1.0.2")
+    (version "1.0.4")
     (source (origin
               (method git-fetch)
               (uri
                (git-reference
                 (url "https://github.com/pop-os/system76-io-dkms")
-                (commit "0217576dd5a14d68c8c9e7253f198ffbf735e283")))
+                (commit "fc71f154ab8d9810f960ba171479c68c44737649")))
               (sha256
                (base32
-                "1w1hc4wblzr4ww78gsmm1nlk1v4hfhmmyy2spz2lr3i8d9126r8d"))))
+                "05ba5jl0c32m029wvwm17266bdilhrvgadaz14wvc1ypy2i3va7j"))))
     (build-system linux-module-build-system)
     (arguments
      (list #:tests? #f                  ; no `check' target
